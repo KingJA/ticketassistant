@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@mipmap/bg_login"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
+              android:padding="24dp">
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="56dp"
+        android:background="@mipmap/bg_logo"/>
+
+    <com.kingja.supershapeview.view.SuperShapeLinearLayout
+        style="@style/font_orange_12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical"
+        app:super_cornerRadius="6dp"
+        app:super_solidColor="@color/white_hi">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginRight="12dp"
+                android:background="@mipmap/ic_account"/>
+
+            <TextView
+                style="@style/font_6_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="账号"/>
+
+            <EditText
+                style="@style/font_3_13"
+                android:id="@+id/et_login_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <View style="@style/div_hor_gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginRight="12dp"
+                android:background="@mipmap/ic_password"/>
+
+            <TextView
+                style="@style/font_6_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="密码"/>
+
+            <EditText
+                style="@style/font_3_13"
+                android:id="@+id/et_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"/>
+        </LinearLayout>
+
+    </com.kingja.supershapeview.view.SuperShapeLinearLayout>
+
+    <com.kingja.supershapeview.view.SuperShapeTextView
+        android:id="@+id/tv_login_confirm"
+        style="@style/font_f_16"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="登录 "
+        app:super_solidColor="#ffb894"
+        app:super_cornerRadius="4dp"/>
+
+
+</LinearLayout>

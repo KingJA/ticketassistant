@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white_hi"
+              android:orientation="vertical">
+
+
+    <com.kingja.ticketassistant.view.StringTextView
+        android:id="@+id/tv_ticketName"
+        style="@style/font_3_15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="温州剧院话剧《雷雨》"/>
+
+    <View style="@style/div_hor_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/font_9_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="订单号："/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_orderno"
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text=""/>
+
+    </LinearLayout>
+
+    <View style="@style/div_hor_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/font_9_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="游客："/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_touristName"
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text=""/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_touristMobile"
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+    </LinearLayout>
+
+    <View style="@style/div_hor_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/font_9_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="数量："/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_quantity"
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="张"/>
+
+    </LinearLayout>
+
+    <View style="@style/div_hor_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/font_9_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="门市价："/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥"/>
+
+        <com.kingja.ticketassistant.view.DeleteTextView
+            android:id="@+id/tv_marketPrice"
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+        <TextView
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="元"/>
+
+    </LinearLayout>
+
+    <View style="@style/div_hor_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/font_9_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="抵用金额："/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="抵用"/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_buyPrice"
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="元/张"/>
+    </LinearLayout>
+
+    <View style="@style/div_hor_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/font_9_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="使用期限："/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_useDate"
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text=""/>
+
+    </LinearLayout>
+
+    <View style="@style/div_hor_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <TextView
+            style="@style/font_9_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text="领券时间："/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_orderTime"
+            style="@style/font_3_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:text=""/>
+
+    </LinearLayout>
+
+    <View style="@style/div_hor_gray"/>
+
+    <com.kingja.supershapeview.view.SuperShapeTextView
+        android:id="@+id/tv_confirm"
+        style="@style/font_f_15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="确定"
+        app:super_cornerRadius="4dp"
+        app:super_solidColor="@color/orange_hi"/>
+</LinearLayout>
