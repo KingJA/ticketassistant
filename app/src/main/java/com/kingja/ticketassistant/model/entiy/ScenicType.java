@@ -7,22 +7,22 @@ package com.kingja.ticketassistant.model.entiy;
  * Email:kingjavip@gmail.com
  */
 public class ScenicType {
-    private String code;
-    private String desc;
+    private String id;
+    private String name;
 
-    public String getCode() {
-        return code;
+    public String getId() {
+        return id;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getName() {
+        return name;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setName(String name) {
+        this.name = name;
     }
 }

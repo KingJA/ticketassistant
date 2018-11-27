@@ -65,7 +65,6 @@ public interface ApiService {
             password);
 
     /*获取景区类型*/
-    @FormUrlEncoded
     @POST("/app/verifier/scenicList")
     Observable<HttpResult<List<ScenicType>>> getScenicType();
 

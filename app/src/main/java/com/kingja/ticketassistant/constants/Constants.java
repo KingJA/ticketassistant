@@ -33,5 +33,7 @@ public class Constants {
         String TicketStatus = "TicketStatus";
         String TicketInfo = "TicketInfo";
     }
-
+    public interface RequestCode {
+        int QCODE = 11;
+    }
 }

@@ -3,7 +3,8 @@ package com.kingja.ticketassistant.base;
 
 import com.kingja.ticketassistant.page.check.CheckFragment;
 import com.kingja.ticketassistant.fragment.MineFragment;
-import com.kingja.ticketassistant.fragment.QueryFragment;
+import com.kingja.ticketassistant.page.home.HomeActivity;
+import com.kingja.ticketassistant.page.query.QueryDataFragment;
 import com.kingja.ticketassistant.injector.annotation.PerActivity;
 import com.kingja.ticketassistant.injector.component.AppComponent;
 import com.kingja.ticketassistant.injector.module.ActivityModule;
@@ -17,12 +18,13 @@ import dagger.Component;
 @PerActivity
 @Component(dependencies = AppComponent.class, modules = {ActivityModule.class})
 public interface BaseCompnent {
+    void inject(HomeActivity target);
     void inject(PersonalActivity target);
     void inject(ModifyPasswordActivity target);
     void inject(ModifyNicknameActivity target);
     void inject(LoginActivity target);
     void inject(CheckFragment target);
     void inject(MineFragment target);
-    void inject(QueryFragment target);
+    void inject(QueryDataFragment target);
 
 }

@@ -3,6 +3,8 @@
           package="com.kingja.ticketassistant">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
 
     <application
@@ -10,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".page.login.LoginActivity">
@@ -19,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".page.HomeActivity"/>
+        <activity android:name=".page.home.HomeActivity"/>
         <activity android:name=".page.modifynickname.ModifyNicknameActivity"/>
         <activity android:name=".page.modifypassword.ModifyPasswordActivity"/>
         <activity android:name=".page.ContactUsActivity"/>

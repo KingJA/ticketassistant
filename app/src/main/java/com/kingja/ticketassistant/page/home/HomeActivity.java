@@ -1,4 +1,4 @@
-package com.kingja.ticketassistant.page;
+package com.kingja.ticketassistant.page.home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,18 +10,26 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.kingja.ticketassistant.R;
 import com.kingja.ticketassistant.base.BaseTitleActivity;
+import com.kingja.ticketassistant.base.DaggerBaseCompnent;
+import com.kingja.ticketassistant.model.entiy.ScenicType;
 import com.kingja.ticketassistant.page.check.CheckFragment;
 import com.kingja.ticketassistant.fragment.MineFragment;
-import com.kingja.ticketassistant.fragment.QueryFragment;
+import com.kingja.ticketassistant.page.query.QueryDataFragment;
 import com.kingja.ticketassistant.injector.component.AppComponent;
+import com.kingja.ticketassistant.util.SpSir;
 import com.kingja.ticketassistant.util.ToastUtil;
+
+import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class HomeActivity extends BaseTitleActivity {
+public class HomeActivity extends BaseTitleActivity implements ScenicTypeContract.View {
 
 
     @BindView(R.id.iv_tab_check)
@@ -44,6 +52,8 @@ public class HomeActivity extends BaseTitleActivity {
     private static final int FRAGMENT_QUERY = 1;
     private static final int FRAGMENT_MINE = 2;
     private int currentTabIndex = 0;
+    @Inject
+    ScenicTypePresenter scenicTypePresenter;
 
     @OnClick({R.id.ll_tab_check, R.id.ll_tab_query, R.id.ll_tab_mine})
     public void click(View view) {
@@ -64,6 +74,7 @@ public class HomeActivity extends BaseTitleActivity {
 
     @Override
     public void initVariable() {
+
     }
 
 
@@ -74,7 +85,11 @@ public class HomeActivity extends BaseTitleActivity {
 
     @Override
     protected void initComponent(AppComponent appComponent) {
-
+        DaggerBaseCompnent.builder()
+                .appComponent(appComponent)
+                .build()
+                .inject(this);
+        scenicTypePresenter.attachView(this);
     }
 
     @Override
@@ -86,7 +101,7 @@ public class HomeActivity extends BaseTitleActivity {
     protected void initView() {
         supportFragmentManager = getSupportFragmentManager();
         fragmentMap.put(FRAGMENT_CHECK, currentFragment = new CheckFragment());
-        fragmentMap.put(FRAGMENT_QUERY, new QueryFragment());
+        fragmentMap.put(FRAGMENT_QUERY, new QueryDataFragment());
         fragmentMap.put(FRAGMENT_MINE, new MineFragment());
         getSupportFragmentManager().beginTransaction().add(R.id.fl_home, currentFragment).commit();
     }
@@ -98,7 +113,15 @@ public class HomeActivity extends BaseTitleActivity {
 
     @Override
     public void initNet() {
+        scenicTypePresenter.getScenicType();
+    }
 
+    @Override
+    public void showLoading() {
+    }
+
+    @Override
+    public void hideLoading() {
     }
 
     @Override
@@ -170,4 +193,8 @@ public class HomeActivity extends BaseTitleActivity {
         }
     }
 
+    @Override
+    public void onGetScenicTypeSuccess(List<ScenicType> scenicTypeList) {
+        SpSir.getInstance().putScenicType(new Gson().toJson(scenicTypeList));
+    }
 }

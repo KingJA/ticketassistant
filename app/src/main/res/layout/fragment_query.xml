@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/rl_startDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp">
@@ -31,6 +32,8 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:gravity="end"
+                    android:id="@+id/tv_startDate"
                     style="@style/font_3_13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -61,6 +64,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/rl_endDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp">
@@ -79,6 +83,8 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:gravity="end"
+                    android:id="@+id/tv_endDate"
                     style="@style/font_3_13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -109,6 +115,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/rl_scenic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp">
@@ -127,6 +134,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_scenic"
                     style="@style/font_3_13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -157,6 +165,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/rl_ticketType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp">
@@ -175,6 +184,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_ticketType"
                     style="@style/font_3_13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -193,7 +203,7 @@
 
     </LinearLayout>
     <com.kingja.supershapeview.view.SuperShapeTextView
-        android:id="@+id/tv_confirm"
+        android:id="@+id/tv_query"
         style="@style/font_f_15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -219,13 +229,13 @@
                 android:layout_height="wrap_content"
                 android:text="上架数"/>
 
-            <TextView
-                android:text="100"
+            <com.kingja.ticketassistant.view.StringTextView
+                android:id="@+id/tv_listingCount"
+                android:text=""
                 android:layout_alignParentRight="true"
                 style="@style/font_3_13"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="12dp"/>
+                android:layout_height="wrap_content"/>
 
         </RelativeLayout>
 
@@ -246,13 +256,13 @@
             android:layout_height="wrap_content"
             android:text="入园数"/>
 
-        <TextView
-            android:text="88"
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_getInCount"
+            android:text=""
             android:layout_alignParentRight="true"
             style="@style/font_3_13"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"/>
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 
@@ -272,13 +282,13 @@
             android:layout_height="wrap_content"
             android:text="入园率"/>
 
-        <TextView
-            android:text="10%"
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_getInRate"
+            android:text=""
             android:layout_alignParentRight="true"
             style="@style/font_3_13"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"/>
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 

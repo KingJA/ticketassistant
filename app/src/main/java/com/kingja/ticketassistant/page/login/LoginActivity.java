@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
-import com.kingja.ticketassistant.page.HomeActivity;
+import com.kingja.ticketassistant.page.home.HomeActivity;
 import com.kingja.ticketassistant.R;
 import com.kingja.ticketassistant.base.BaseTitleActivity;
 import com.kingja.ticketassistant.base.DaggerBaseCompnent;
