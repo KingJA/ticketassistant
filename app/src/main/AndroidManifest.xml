@@ -27,6 +27,7 @@
         <activity android:name=".page.ContactUsActivity"/>
         <activity android:name=".page.headimg.PersonalActivity"/>
         <activity android:name=".page.TicketDetailActivity"/>
+        <activity android:name=".page.HelpActivity"/>
     </application>
 
 </manifest>

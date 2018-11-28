@@ -1,60 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:id="@+id/ll_root"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/bg_hi"
-              android:orientation="vertical">
-
-    <TextView
-        style="@style/font_f_18"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/orange_hi"
-        android:gravity="center"
-        android:text="数据查询 "/>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
+        android:id="@+id/ll_root"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_hi"
+        android:layout_height="match_parent"
+        android:background="@color/bg_hi"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/rl_startDate"
+
+        <TextView
+            style="@style/font_f_18"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/orange_hi"
+            android:gravity="center"
+            android:text="数据查询 "/>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp">
+            android:background="@color/white_hi"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_startDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/font_6_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="起始时间"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_startDate"
+                        style="@style/font_3_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12dp"
+                        android:gravity="end"
+                        android:hint="请选择起始时间"/>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:background="@mipmap/ic_arrow_right"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                style="@style/div_hor_gray"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_hi"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_endDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/font_6_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="结束时间"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_endDate"
+                        style="@style/font_3_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12dp"
+                        android:gravity="end"
+                        android:hint="请选择结束时间"/>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:background="@mipmap/ic_arrow_right"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                style="@style/div_hor_gray"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_hi"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_scenic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/font_6_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="当前景区"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_scenic"
+                        style="@style/font_3_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12dp"
+                        android:gravity="end"
+                        android:hint="请选择当前景区"/>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:background="@mipmap/ic_arrow_right"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                style="@style/div_hor_gray"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_hi"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_ticketType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/font_6_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="票种选择"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_ticketType"
+                        style="@style/font_3_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12dp"
+                        android:gravity="end"
+                        android:hint="请选择票种"/>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:background="@mipmap/ic_arrow_right"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <com.kingja.supershapeview.view.SuperShapeTextView
+            android:id="@+id/tv_query"
+            style="@style/font_f_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="查询"
+            app:super_cornerRadius="4dp"
+            app:super_solidColor="@color/orange_hi"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_hi"
+            android:padding="16dp">
 
             <TextView
                 style="@style/font_6_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="起始时间"/>
+                android:text="上架数"/>
 
-            <LinearLayout
+            <com.kingja.ticketassistant.view.StringTextView
+                android:id="@+id/tv_listingCount"
+                style="@style/font_3_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_startDate"
-                    style="@style/font_3_13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="12dp"
-                    android:gravity="end"
-                    android:hint="请选择起始时间"/>
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:background="@mipmap/ic_arrow_right"/>
-
-            </LinearLayout>
+                android:text=""/>
 
         </RelativeLayout>
 
@@ -63,49 +263,25 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_hi"
-        android:orientation="vertical">
-
         <RelativeLayout
-            android:id="@+id/rl_endDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp">
+            android:background="@color/white_hi"
+            android:padding="16dp">
 
             <TextView
                 style="@style/font_6_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="结束时间"/>
+                android:text="入园数"/>
 
-            <LinearLayout
+            <com.kingja.ticketassistant.view.StringTextView
+                android:id="@+id/tv_getInCount"
+                style="@style/font_3_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_endDate"
-                    style="@style/font_3_13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="12dp"
-                    android:gravity="end"
-                    android:hint="请选择结束时间"/>
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:background="@mipmap/ic_arrow_right"/>
-
-            </LinearLayout>
+                android:text=""/>
 
         </RelativeLayout>
 
@@ -114,201 +290,27 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_hi"
-        android:orientation="vertical">
-
         <RelativeLayout
-            android:id="@+id/rl_scenic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp">
+            android:background="@color/white_hi"
+            android:padding="16dp">
 
             <TextView
                 style="@style/font_6_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="当前景区"/>
+                android:text="入园率"/>
 
-            <LinearLayout
+            <com.kingja.ticketassistant.view.StringTextView
+                android:id="@+id/tv_getInRate"
+                style="@style/font_3_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_scenic"
-                    style="@style/font_3_13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="12dp"
-                    android:gravity="end"
-                    android:hint="请选择当前景区"/>
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:background="@mipmap/ic_arrow_right"/>
-
-            </LinearLayout>
+                android:text=""/>
 
         </RelativeLayout>
 
-        <View
-            style="@style/div_hor_gray"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
-
-
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_hi"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/rl_ticketType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp">
-
-            <TextView
-                style="@style/font_6_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="票种选择"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_ticketType"
-                    style="@style/font_3_13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="12dp"
-                    android:gravity="end"
-                    android:hint="请选择票种"/>
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:background="@mipmap/ic_arrow_right"/>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-
-    </LinearLayout>
-
-    <com.kingja.supershapeview.view.SuperShapeTextView
-        android:id="@+id/tv_query"
-        style="@style/font_f_15"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="查询"
-        app:super_cornerRadius="4dp"
-        app:super_solidColor="@color/orange_hi"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_hi"
-        android:padding="20dp">
-
-        <TextView
-            style="@style/font_6_13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="上架数"/>
-
-        <com.kingja.ticketassistant.view.StringTextView
-            android:id="@+id/tv_listingCount"
-            style="@style/font_3_13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text=""/>
-
-    </RelativeLayout>
-
-    <View
-        style="@style/div_hor_gray"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_hi"
-        android:padding="20dp">
-
-        <TextView
-            style="@style/font_6_13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="入园数"/>
-
-        <com.kingja.ticketassistant.view.StringTextView
-            android:id="@+id/tv_getInCount"
-            style="@style/font_3_13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text=""/>
-
-    </RelativeLayout>
-
-    <View
-        style="@style/div_hor_gray"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_hi"
-        android:padding="20dp">
-
-        <TextView
-            style="@style/font_6_13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="入园率"/>
-
-        <com.kingja.ticketassistant.view.StringTextView
-            android:id="@+id/tv_getInRate"
-            style="@style/font_3_13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text=""/>
-
-    </RelativeLayout>
-
-    <View
-        style="@style/div_hor_gray"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-
-</LinearLayout>
+</ScrollView>

@@ -99,6 +99,10 @@
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/c_3</item>
     </style>
+    <style name="font_3_10">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/c_3</item>
+    </style>
     <style name="div_hor_bg">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>

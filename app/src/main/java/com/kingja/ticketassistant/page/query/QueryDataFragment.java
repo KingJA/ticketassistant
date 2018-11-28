@@ -26,6 +26,7 @@ import com.kingja.ticketassistant.page.home.ScenicTypePresenter;
 import com.kingja.ticketassistant.util.DateUtil;
 import com.kingja.ticketassistant.util.LogUtil;
 import com.kingja.ticketassistant.util.SpSir;
+import com.kingja.ticketassistant.view.DiscountPop;
 import com.kingja.ticketassistant.view.ScenicPop;
 import com.kingja.ticketassistant.view.StringTextView;
 
@@ -74,17 +75,17 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
     TextView tvTicketType;
     @BindView(R.id.ll_root)
     LinearLayout llRoot;
-    Unbinder unbinder;
     private TimePickerDialog startDateSelector;
     private TimePickerDialog endDateSelector;
     private String startDate = "";
     private String endDate = "";
     private String scenicId = "";
-
+    private String discountRate="";
     @Inject
     ScenicTypePresenter scenicTypePresenter;
     private ScenicPop scenicPop;
     private List<ScenicType> scenicTypes;
+    private DiscountPop discountPop;
 
     @OnClick({R.id.rl_startDate, R.id.rl_endDate, R.id.rl_scenic, R.id.rl_ticketType, R.id.tv_query})
     public void click(View view) {
@@ -130,6 +131,7 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
                 scenicPop.showPopupAbove();
                 break;
             case R.id.rl_ticketType:
+                discountPop.showPopupAbove();
                 break;
             case R.id.tv_query:
                 query();
@@ -139,12 +141,13 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
 
     }
 
+
     private void query() {
         queryDataPresenter.queryData(new MultipartBody.Builder().setType(MultipartBody.FORM)
                 .addFormDataPart("startDate", startDate)
                 .addFormDataPart("endDate", endDate)
                 .addFormDataPart("scenicId", scenicId)
-                .addFormDataPart("discountRate", "")
+                .addFormDataPart("discountRate", discountRate)
                 .build());
     }
 
@@ -172,6 +175,12 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
     protected void initData() {
         initScenicTypeData();
         initScenicPop();
+        discountPop = new DiscountPop(getActivity(), llRoot);
+        discountPop.setOnDiscountRateSelectedLintener((discountDes, rate) -> {
+            tvTicketType.setText(discountDes);
+            discountRate=rate;
+            LogUtil.e(TAG,"discountRate:"+discountRate);
+        });
     }
 
     private void initScenicPop() {
@@ -180,6 +189,7 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
         scenicPop.setOnScenicTypeSelectedListener(scenicType -> {
             tvScenic.setText(scenicType.getName());
             scenicId = scenicType.getId();
+
         });
     }
 

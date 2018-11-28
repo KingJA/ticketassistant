@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.kingja.ticketassistant.MainActivity;
 import com.kingja.ticketassistant.R;
 import com.kingja.ticketassistant.base.BaseFragment;
 import com.kingja.ticketassistant.base.DaggerBaseCompnent;
@@ -21,10 +20,8 @@ import com.kingja.ticketassistant.constants.Constants;
 import com.kingja.ticketassistant.injector.component.AppComponent;
 import com.kingja.ticketassistant.model.entiy.TicketInfo;
 import com.kingja.ticketassistant.page.TicketDetailActivity;
-import com.kingja.ticketassistant.page.headimg.PersonalActivity;
 import com.kingja.ticketassistant.util.CheckUtil;
 import com.kingja.ticketassistant.util.DialogUtil;
-import com.kingja.ticketassistant.util.LogUtil;
 import com.kingja.ticketassistant.util.ToastUtil;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
