@@ -24,6 +24,7 @@ import com.kingja.ticketassistant.page.TicketDetailActivity;
 import com.kingja.ticketassistant.page.headimg.PersonalActivity;
 import com.kingja.ticketassistant.util.CheckUtil;
 import com.kingja.ticketassistant.util.DialogUtil;
+import com.kingja.ticketassistant.util.LogUtil;
 import com.kingja.ticketassistant.util.ToastUtil;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -119,7 +120,8 @@ public class CheckFragment extends BaseFragment implements CheckContract.View {
                             openCamera();
                         } else if (permission.shouldShowRequestPermissionRationale) {
                             // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-                            DialogUtil.showDoubleDialog(getActivity(), "为保证您使用二维码功能，需要获取相机权限，请允许", new MaterialDialog.SingleButtonCallback() {
+                            DialogUtil.showDoubleDialog(getActivity(), "为保证您使用二维码功能，需要获取相机权限，请允许", new MaterialDialog
+                                    .SingleButtonCallback() {
                                 @Override
                                 public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                                     checkPhotoPermission();
@@ -127,23 +129,27 @@ public class CheckFragment extends BaseFragment implements CheckContract.View {
                             });
                         } else {
                             // 用户拒绝了该权限，并且选中『不再询问』
-                            DialogUtil.showDoubleDialog(getActivity(), "未取得相机权限，将无法使用二维码功能。请前往应用权限设置打开权限。", new MaterialDialog.SingleButtonCallback() {
-                                @Override
-                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                    startAppSettings();
-                                }
-                            });
+                            DialogUtil.showDoubleDialog(getActivity(), "未取得相机权限，将无法使用二维码功能。请前往应用权限设置打开权限。", new
+                                    MaterialDialog.SingleButtonCallback() {
+                                        @Override
+                                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction
+                                                which) {
+                                            startAppSettings();
+                                        }
+                                    });
 
                         }
                     }
                 });
 
     }
+
     private void startAppSettings() {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        intent.setData(Uri.fromParts("package",getActivity(). getPackageName(), null));
+        intent.setData(Uri.fromParts("package", getActivity().getPackageName(), null));
         startActivity(intent);
     }
+
     private void openCamera() {
         Intent intent = new Intent(getActivity(), CaptureActivity.class);
         startActivityForResult(intent, Constants.RequestCode.QCODE);
@@ -180,7 +186,8 @@ public class CheckFragment extends BaseFragment implements CheckContract.View {
                     }
                     if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
                         String result = bundle.getString(CodeUtils.RESULT_STRING);
-                        Toast.makeText(getActivity(), "解析结果:" + result, Toast.LENGTH_LONG).show();
+                        result = result.substring(result.lastIndexOf("/") + 1);
+                        etCode.setText(result);
                     } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
                         Toast.makeText(getActivity(), "解析二维码失败", Toast.LENGTH_LONG).show();
                     }

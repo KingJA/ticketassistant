@@ -14,13 +14,20 @@ import com.google.gson.Gson;
 import com.kingja.ticketassistant.R;
 import com.kingja.ticketassistant.base.BaseTitleActivity;
 import com.kingja.ticketassistant.base.DaggerBaseCompnent;
+import com.kingja.ticketassistant.event.ResetLoginStatusEvent;
 import com.kingja.ticketassistant.model.entiy.ScenicType;
 import com.kingja.ticketassistant.page.check.CheckFragment;
 import com.kingja.ticketassistant.fragment.MineFragment;
+import com.kingja.ticketassistant.page.login.LoginActivity;
 import com.kingja.ticketassistant.page.query.QueryDataFragment;
 import com.kingja.ticketassistant.injector.component.AppComponent;
+import com.kingja.ticketassistant.util.GoUtil;
 import com.kingja.ticketassistant.util.SpSir;
 import com.kingja.ticketassistant.util.ToastUtil;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
@@ -74,7 +81,7 @@ public class HomeActivity extends BaseTitleActivity implements ScenicTypeContrac
 
     @Override
     public void initVariable() {
-
+        EventBus.getDefault().register(this);
     }
 
 
@@ -196,5 +203,11 @@ public class HomeActivity extends BaseTitleActivity implements ScenicTypeContrac
     @Override
     public void onGetScenicTypeSuccess(List<ScenicType> scenicTypeList) {
         SpSir.getInstance().putScenicType(new Gson().toJson(scenicTypeList));
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void resetLoginStatus(ResetLoginStatusEvent resetLoginStatusEvent) {
+        SpSir.getInstance().clearData();
+        GoUtil.goActivityAndFinish(this, LoginActivity.class);
     }
 }

@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/ll_root"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:background="@color/bg_hi"
               android:orientation="vertical">
+
+    <TextView
+        style="@style/font_f_18"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/orange_hi"
+        android:gravity="center"
+        android:text="数据查询 "/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,12 +41,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:gravity="end"
                     android:id="@+id/tv_startDate"
                     style="@style/font_3_13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="12dp"
+                    android:gravity="end"
                     android:hint="请选择起始时间"/>
 
                 <ImageView
@@ -83,12 +92,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:gravity="end"
                     android:id="@+id/tv_endDate"
                     style="@style/font_3_13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="12dp"
+                    android:gravity="end"
                     android:hint="请选择结束时间"/>
 
                 <ImageView
@@ -139,6 +148,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="12dp"
+                    android:gravity="end"
                     android:hint="请选择当前景区"/>
 
                 <ImageView
@@ -189,6 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="12dp"
+                    android:gravity="end"
                     android:hint="请选择票种"/>
 
                 <ImageView
@@ -202,6 +213,7 @@
 
 
     </LinearLayout>
+
     <com.kingja.supershapeview.view.SuperShapeTextView
         android:id="@+id/tv_query"
         style="@style/font_f_15"
@@ -217,37 +229,37 @@
         app:super_cornerRadius="4dp"
         app:super_solidColor="@color/orange_hi"/>
 
-        <RelativeLayout
-            android:background="@color/white_hi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp">
-
-            <TextView
-                style="@style/font_6_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="上架数"/>
-
-            <com.kingja.ticketassistant.view.StringTextView
-                android:id="@+id/tv_listingCount"
-                android:text=""
-                android:layout_alignParentRight="true"
-                style="@style/font_3_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </RelativeLayout>
-
-        <View
-            style="@style/div_hor_gray"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
-
     <RelativeLayout
-        android:background="@color/white_hi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white_hi"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/font_6_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上架数"/>
+
+        <com.kingja.ticketassistant.view.StringTextView
+            android:id="@+id/tv_listingCount"
+            style="@style/font_3_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text=""/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/div_hor_gray"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_hi"
         android:padding="20dp">
 
         <TextView
@@ -258,11 +270,11 @@
 
         <com.kingja.ticketassistant.view.StringTextView
             android:id="@+id/tv_getInCount"
-            android:text=""
-            android:layout_alignParentRight="true"
             style="@style/font_3_13"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text=""/>
 
     </RelativeLayout>
 
@@ -270,10 +282,11 @@
         style="@style/div_hor_gray"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
+
     <RelativeLayout
-        android:background="@color/white_hi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white_hi"
         android:padding="20dp">
 
         <TextView
@@ -284,11 +297,11 @@
 
         <com.kingja.ticketassistant.view.StringTextView
             android:id="@+id/tv_getInRate"
-            android:text=""
-            android:layout_alignParentRight="true"
             style="@style/font_3_13"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text=""/>
 
     </RelativeLayout>
 

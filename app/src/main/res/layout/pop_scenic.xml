@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white_hi"
+              android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/bg_hi">
+
+        <TextView
+            style="@style/font_orange_17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="请选择景区"/>
+
+    </RelativeLayout>
+
+    <com.kingja.ticketassistant.view.FixedListView
+        android:id="@+id/flv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/bg_hi"
+        android:dividerHeight="1px"
+        android:listSelector="@android:color/transparent"
+        tools:listitem="@layout/item_spiner"/>
+</LinearLayout>

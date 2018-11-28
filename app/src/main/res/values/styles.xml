@@ -59,6 +59,11 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/orange_hi</item>
     </style>
+    <style name="font_orange_17">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/orange_hi</item>
+    </style>
+
     <style name="font_orange_18">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/orange_hi</item>
@@ -173,5 +178,10 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/white_hi</item>
+    </style>
+
+    <style name="popwin_anim_style" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
     </style>
 </resources>
