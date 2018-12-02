@@ -88,6 +88,8 @@ dependencies {
     implementation 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
     /*底部对话框*/
     implementation('com.flipboard:bottomsheet-core:1.5.3') { exclude group: 'com.android.support' }
+    /*图片压缩*/
+    implementation 'top.zibin:Luban:1.1.8'
 }
 
 

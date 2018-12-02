@@ -16,6 +16,7 @@ import com.kingja.ticketassistant.event.RefreshNicknameEvent;
 import com.kingja.ticketassistant.imgaeloader.ImageLoader;
 import com.kingja.ticketassistant.injector.component.AppComponent;
 import com.kingja.ticketassistant.page.ContactUsActivity;
+import com.kingja.ticketassistant.page.HelpActivity;
 import com.kingja.ticketassistant.page.headimg.PersonalActivity;
 import com.kingja.ticketassistant.page.login.LoginActivity;
 import com.kingja.ticketassistant.page.modifypassword.ModifyPasswordActivity;
@@ -51,7 +52,7 @@ public class MineFragment extends BaseFragment {
     @BindView(R.id.tv_quit)
     TextView tvQuit;
 
-    @OnClick({R.id.rl_password, R.id.rl_contract, R.id.rl_personal, R.id.tv_quit})
+    @OnClick({R.id.rl_password, R.id.rl_contract, R.id.rl_personal, R.id.rl_useDes, R.id.tv_quit})
     public void click(View view) {
         switch (view.getId()) {
             case R.id.rl_personal:
@@ -65,6 +66,10 @@ public class MineFragment extends BaseFragment {
             case R.id.rl_contract:
                 //联系我们
                 GoUtil.goActivity(getActivity(), ContactUsActivity.class);
+                break;
+            case R.id.rl_useDes:
+                //联系我们
+                GoUtil.goActivity(getActivity(), HelpActivity.class);
                 break;
             case R.id.tv_quit:
                 //退出登录

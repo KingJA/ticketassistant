@@ -1,5 +1,6 @@
 package com.kingja.ticketassistant.page;
 
+import com.kingja.ticketassistant.R;
 import com.kingja.ticketassistant.base.BaseTitleActivity;
 import com.kingja.ticketassistant.injector.component.AppComponent;
 
@@ -17,7 +18,7 @@ public class HelpActivity extends BaseTitleActivity {
 
     @Override
     protected int getContentView() {
-        return 0;
+        return R.layout.activity_help;
     }
 
     @Override

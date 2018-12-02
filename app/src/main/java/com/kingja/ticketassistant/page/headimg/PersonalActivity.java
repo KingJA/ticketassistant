@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ import com.kingja.ticketassistant.page.modifynickname.ModifyNicknameActivity;
 import com.kingja.ticketassistant.util.DialogUtil;
 import com.kingja.ticketassistant.util.FileUtil;
 import com.kingja.ticketassistant.util.GoUtil;
+import com.kingja.ticketassistant.util.LogUtil;
 import com.kingja.ticketassistant.util.SpSir;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.Permission;
@@ -48,6 +50,9 @@ import io.reactivex.functions.Consumer;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import top.zibin.luban.CompressionPredicate;
+import top.zibin.luban.Luban;
+import top.zibin.luban.OnCompressListener;
 
 /**
  * Description:TODO
@@ -140,9 +145,51 @@ public class PersonalActivity extends BaseTitleActivity implements PersonalContr
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_CHOOSE && resultCode == RESULT_OK) {
             mSelected = Matisse.obtainResult(data);
-            uploadHeadImg(mSelected.get(0));
+//            uploadHeadImg(mSelected.get(0));
+            compressPhoto(mSelected.get(0));
         }
     }
+    private  void compressPhoto(Uri uri) {
+        File headImgFile = FileUtil.getFileByUri(uri, this);
+        Luban.with(this)
+                .load(headImgFile)
+                .ignoreBy(100)
+                .setFocusAlpha(false)
+                .filter(new CompressionPredicate() {
+                    @Override
+                    public boolean apply(String path) {
+                        LogUtil.e(TAG, "path:"+path);
+                        return !(TextUtils.isEmpty(path) || path.toLowerCase().endsWith(".gif"));
+                    }
+                })
+                .setCompressListener(new OnCompressListener() {
+                    @Override
+                    public void onStart() {
+                        LogUtil.e(TAG, "开始压缩");
+                    }
+
+                    @Override
+                    public void onSuccess(File file) {
+                        LogUtil.e(TAG, "大小:"+file.length());
+                        LogUtil.e(TAG, "file:"+file.getAbsolutePath());
+                        LogUtil.e(TAG, "name:"+file.getName());
+                        LogUtil.e(TAG, "开始成功");
+                        RequestBody body = RequestBody.create(MediaType.parse("image/jpg"), file);
+                        MultipartBody.Part photoPart = MultipartBody.Part.createFormData("headimg", file.getName(), body);
+                        personalPresenter.uploadHeadImg(photoPart);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtil.e(TAG, "开始失败");
+                        File headImgFile = FileUtil.getFileByUri(uri, PersonalActivity.this);
+                        RequestBody body = RequestBody.create(MediaType.parse("image/jpg"), headImgFile);
+                        MultipartBody.Part photoPart = MultipartBody.Part.createFormData("headimg", headImgFile.getName(), body);
+                        personalPresenter.uploadHeadImg(photoPart);
+                    }
+                }).launch();
+    }
+
 
     private void uploadHeadImg(Uri uri) {
         Logger.d("uri:" + uri.toString());
@@ -191,7 +238,7 @@ public class PersonalActivity extends BaseTitleActivity implements PersonalContr
     @Override
     protected void initData() {
         String headImg = SpSir.getInstance().getHeadImg();
-        ImageLoader.getInstance().loadImage(this, headImg, ivPersonalHead);
+        ImageLoader.getInstance().loadCircleImage(this, headImg, ivPersonalHead);
         tvNickname.setText(SpSir.getInstance().getNickname());
     }
 
@@ -219,6 +266,6 @@ public class PersonalActivity extends BaseTitleActivity implements PersonalContr
     public void onUploadHeadImgSuccess(String url) {
         SpSir.getInstance().putHeadImg(url);
         EventBus.getDefault().post(new RefreshHeadImgEvent());
-        ImageLoader.getInstance().loadImage(this, url, ivPersonalHead);
+        ImageLoader.getInstance().loadCircleImage(this, url, ivPersonalHead);
     }
 }

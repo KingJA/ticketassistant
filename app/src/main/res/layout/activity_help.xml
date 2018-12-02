@@ -1,13 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_hi">
+<LinearLayout
+    android:background="@color/white_hi"
+    android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:padding="16dp">
 
-    <TextView
-        android:lineSpacingExtra="6dp"
+
+    <LinearLayout
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1.上架数：统计以产品的使用日期首日作为上架日期。"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginRight="12dp"
+            style="@style/font_f_10"
+            android:gravity="center"
+            android:text="1"
+            android:background="@drawable/shape_circle_orange"
+            android:layout_width="14dp"
+            android:layout_height="14dp"/>
+        <TextView
+            style="@style/font_3_13"
+            android:text="关于验票"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_marginBottom="8dp"
+        style="@style/font_9_13"
+        android:lineSpacingExtra="4dp"
+        android:text="第一步：游客打开＂鸭鹿鸡APP＂的＂券包＂栏，选中扺用券并点击后出现扺用券详情。\n第二步：用验票端APP右上角扫码键扫描扺用券二维码或手工输入验证码验证，并依据后台数据库反馈信息进行处理。"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginRight="12dp"
+            style="@style/font_f_10"
+            android:gravity="center"
+            android:text="2"
+            android:background="@drawable/shape_circle_orange"
+            android:layout_width="14dp"
+            android:layout_height="14dp"/>
+        <TextView
+            style="@style/font_3_13"
+            android:text="关于查看"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <TextView
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="8dp"
+        style="@style/font_9_13"
+        android:text="选择好你所要查看的景点、票种、时间范围后点击＂查询＂按钮即可查询相应信息。"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginRight="12dp"
+            style="@style/font_f_10"
+            android:gravity="center"
+            android:text="3"
+            android:background="@drawable/shape_circle_orange"
+            android:layout_width="14dp"
+            android:layout_height="14dp"/>
+        <TextView
+            style="@style/font_3_13"
+            android:text="关于验票账号"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <TextView
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="8dp"
+        style="@style/font_9_13"
+        android:text="一、如需增加验票账号请联系鸭鹿鸡客服人员办理。\n二、如遗忘登陆密码请联系鸭鹿鸡客服人员办理。\n三、如有人员变动请及时交接并修改密码或联系鸭鹿鸡客服人员注销多余账号。"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginRight="12dp"
+            style="@style/font_f_10"
+            android:gravity="center"
+            android:text="4"
+            android:background="@drawable/shape_circle_orange"
+            android:layout_width="14dp"
+            android:layout_height="14dp"/>
+        <TextView
+            style="@style/font_3_13"
+            android:text="关于名词解释"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <TextView
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="8dp"
+        style="@style/font_9_13"
+        android:text="一、上架数：1、鉴于入园率因素，上架数会多于合作约定数量。2、产品的上架日为＂产品的使用日期首日＂，日期筛选时请注意。\n二、入园率：筛选范围内＂入园数＂与＂上架数＂的比。"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>
+
+
+
+</ScrollView>

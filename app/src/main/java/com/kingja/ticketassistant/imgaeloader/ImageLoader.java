@@ -3,6 +3,8 @@ package com.kingja.ticketassistant.imgaeloader;
 import android.content.Context;
 import android.widget.ImageView;
 
+import com.kingja.ticketassistant.R;
+
 /**
  * Description：TODO
  * Create Time：2017/3/9 11:08
@@ -30,6 +32,9 @@ public class ImageLoader implements IImageLoader {
     @Override
     public void loadCircleImage(Context context, String url, int resourceId, ImageView view) {
         imageLoader.loadCircleImage(context, url, resourceId, view);
+    }
+    public void loadCircleImage(Context context, String url, ImageView view) {
+        imageLoader.loadCircleImage(context, url, R.drawable.ic_placeholder, view);
     }
 
     public void loadImage(Context context, String url, ImageView view) {
