@@ -1,12 +1,12 @@
 package com.kingja.ticketassistant.model.service;
 
-import android.icu.util.VersionInfo;
 
 import com.kingja.ticketassistant.model.entiy.CheckResult;
 import com.kingja.ticketassistant.model.entiy.HttpResult;
 import com.kingja.ticketassistant.model.entiy.Login;
 import com.kingja.ticketassistant.model.entiy.ScenicType;
 import com.kingja.ticketassistant.model.entiy.TicketInfo;
+import com.kingja.ticketassistant.model.entiy.VersionInfo;
 
 import java.util.List;
 
@@ -80,6 +80,7 @@ public interface ApiService {
     /*版本检测*/
     @FormUrlEncoded
     @POST("/app/version/detail")
-    Observable<HttpResult<VersionInfo>> checkUpdate(@Field("version") String version, @Field("flag") int flag);
+    Observable<HttpResult<VersionInfo>> getVersion(@Field("version") String version, @Field("flag") int flag, @Field
+            ("type") int type);
 
 }

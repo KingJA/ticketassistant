@@ -1,0 +1,68 @@
+package com.kingja.ticketassistant.update;
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.view.View;
+import android.widget.TextView;
+
+
+import com.kingja.ticketassistant.R;
+import com.kingja.ticketassistant.model.entiy.VersionInfo;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+
+/**
+ * Description:TODO
+ * Create Time:2018/11/8 19:52
+ * Author:KingJA
+ * Email:kingjavip@gmail.com
+ */
+public class UpdateDialog extends BaseDialog {
+
+    @BindView(R.id.tv_versionName)
+    TextView tvVersionName;
+    @BindView(R.id.tv_content)
+    TextView tvContent;
+    private VersionInfo versionInfo;
+
+    @OnClick({R.id.tv_confirm, R.id.tv_cancel})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.tv_confirm:
+                if (onConfirmListener != null) {
+                    onConfirmListener.onConfirm();
+                }
+                dismiss();
+                break;
+            case R.id.tv_cancel:
+                dismiss();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public UpdateDialog(@NonNull Context context, VersionInfo versionInfo) {
+        super(context, R.style.Dialog_R8_WHITE);
+        this.versionInfo = versionInfo;
+    }
+
+
+    @Override
+    protected void initData() {
+        String latestContent = versionInfo.getLatestContent().replace("#","\n");
+        tvVersionName.setText(versionInfo.getLatestVersionName());
+        tvContent.setText(latestContent);
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.dialog_update;
+    }
+}

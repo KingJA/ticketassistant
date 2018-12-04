@@ -21,6 +21,7 @@ import com.kingja.ticketassistant.fragment.MineFragment;
 import com.kingja.ticketassistant.page.login.LoginActivity;
 import com.kingja.ticketassistant.page.query.QueryDataFragment;
 import com.kingja.ticketassistant.injector.component.AppComponent;
+import com.kingja.ticketassistant.update.VersionUpdateSir;
 import com.kingja.ticketassistant.util.GoUtil;
 import com.kingja.ticketassistant.util.SpSir;
 import com.kingja.ticketassistant.util.ToastUtil;
@@ -121,6 +122,7 @@ public class HomeActivity extends BaseTitleActivity implements ScenicTypeContrac
     @Override
     public void initNet() {
         scenicTypePresenter.getScenicType();
+        new VersionUpdateSir(HomeActivity.this).checkUpdate();
     }
 
     @Override
