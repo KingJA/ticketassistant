@@ -176,7 +176,6 @@
             app:rsb_mode="range"
             app:rsb_progress_color="@color/orange_hi"
             app:rsb_progress_default_color="@color/gray_hi"
-            app:rsb_range_interval="1"
             app:rsb_thumb_drawable="@mipmap/ic_seekbar"
             app:rsb_thumb_size="36dp"
             app:rsb_tick_mark_mode="number"/>

@@ -98,7 +98,10 @@ public class DiscountPop extends BaseBottomPopup {
                     case DiscountStatus.RATE:
                         String startDiscount = tvStartDiscount.getText().toString().trim();
                         String endDiscount = tvEndDiscount.getText().toString().trim();
-                        onDiscountRateSelectedLintener.onDiscountRateSelected("折扣率:"+startDiscount+"-"+endDiscount, discountRate);
+                        String discountDes = startDiscount.equals(endDiscount) ? "折扣率:" + startDiscount : "折扣率:" +
+                                startDiscount + "-" + endDiscount;
+                        onDiscountRateSelectedLintener.onDiscountRateSelected(discountDes, discountRate);
+
                         break;
                     case DiscountStatus.QUESTION:
                         onDiscountRateSelectedLintener.onDiscountRateSelected("问答券", "99");
@@ -108,19 +111,19 @@ public class DiscountPop extends BaseBottomPopup {
                 break;
             case R.id.rl_all:
                 currentStatus = DiscountStatus.ALL_TYPE;
-                openDiscount=false;
+                openDiscount = false;
                 resetDiscount(openDiscount);
                 resetSelected();
                 break;
             case R.id.rl_allDiscount:
                 currentStatus = DiscountStatus.ALL_DISCOUNT;
-                openDiscount=false;
+                openDiscount = false;
                 resetDiscount(openDiscount);
                 resetSelected();
                 break;
             case R.id.rl_question:
                 currentStatus = DiscountStatus.QUESTION;
-                openDiscount=false;
+                openDiscount = false;
                 resetDiscount(openDiscount);
                 resetSelected();
                 break;
