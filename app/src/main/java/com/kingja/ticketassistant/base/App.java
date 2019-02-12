@@ -13,6 +13,7 @@ import com.kingja.ticketassistant.injector.module.ApiModule;
 import com.kingja.ticketassistant.injector.module.AppModule;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.sunmi.trans.util.AidlUtil;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 
@@ -43,6 +44,7 @@ public class App extends Application {
         sInstance = this;
         mSharedPreferences = getSharedPreferences(Constants.APPLICATION_NAME, MODE_PRIVATE);
         setupComponent();
+        AidlUtil.getInstance().connectPrinterService(this);
     }
 
     public static SharedPreferences getSp() {

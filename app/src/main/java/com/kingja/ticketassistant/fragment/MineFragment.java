@@ -23,7 +23,10 @@ import com.kingja.ticketassistant.page.modifypassword.ModifyPasswordActivity;
 import com.kingja.ticketassistant.util.GoUtil;
 import com.kingja.ticketassistant.util.LoginChecker;
 import com.kingja.ticketassistant.util.SpSir;
+import com.kingja.ticketassistant.util.ToastUtil;
 import com.kingja.ticketassistant.view.StringTextView;
+import com.sunmi.trans.util.AidlUtil;
+import com.sunmi.trans.util.BytesUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -52,7 +55,7 @@ public class MineFragment extends BaseFragment {
     @BindView(R.id.tv_quit)
     TextView tvQuit;
 
-    @OnClick({R.id.rl_password, R.id.rl_contract, R.id.rl_personal, R.id.rl_useDes, R.id.tv_quit})
+    @OnClick({R.id.rl_password, R.id.rl_contract, R.id.rl_personal, R.id.rl_useDes, R.id.tv_quit, R.id.rl_print})
     public void click(View view) {
         switch (view.getId()) {
             case R.id.rl_personal:
@@ -70,6 +73,13 @@ public class MineFragment extends BaseFragment {
             case R.id.rl_useDes:
                 //联系我们
                 GoUtil.goActivity(getActivity(), HelpActivity.class);
+                break;
+            case R.id.rl_print:
+                //测试打印
+                ToastUtil.showText("测试打印");
+                AidlUtil.getInstance().printText("鸭鹿鸡验票系统打印测试",30,true,false);
+                AidlUtil.getInstance().printText("测试打印内容\n测试换行",30,true,false);
+                AidlUtil.getInstance().sendRawData(BytesUtil.printDiv());
                 break;
             case R.id.tv_quit:
                 //退出登录

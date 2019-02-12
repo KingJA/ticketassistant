@@ -132,6 +132,28 @@
             android:layout_marginRight="20dp"
             android:background="@mipmap/ic_arrow_right"/>
     </RelativeLayout>
+    <View style="@style/div_hor_gray"/>
+    <RelativeLayout
+        android:id="@+id/rl_print"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/white_hi"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/font_3_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="测试打印"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/ic_arrow_right"/>
+    </RelativeLayout>
 
 
 
