@@ -10,8 +10,12 @@ import com.kingja.ticketassistant.base.BaseTitleActivity;
 import com.kingja.ticketassistant.constants.Constants;
 import com.kingja.ticketassistant.injector.component.AppComponent;
 import com.kingja.ticketassistant.model.entiy.TicketInfo;
+import com.kingja.ticketassistant.util.AppUtil;
+import com.kingja.ticketassistant.util.ToastUtil;
 import com.kingja.ticketassistant.view.DeleteTextView;
 import com.kingja.ticketassistant.view.StringTextView;
+import com.sunmi.trans.util.AidlUtil;
+import com.sunmi.trans.util.BytesUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -45,15 +49,44 @@ public class TicketDetailActivity extends BaseTitleActivity {
     SuperShapeTextView tvConfirm;
     private TicketInfo tickeInfo;
 
-    @OnClick({R.id.tv_confirm})
+    @OnClick({R.id.tv_confirm, R.id.tv_print})
     public void click(View view) {
         switch (view.getId()) {
             case R.id.tv_confirm:
                 finish();
                 break;
+            case R.id.tv_print:
+                print();
+                break;
             default:
                 break;
         }
+    }
+
+    private void print() {
+        AidlUtil.getInstance().printText("DDCHICK 验票系统", AppUtil.dp2px(20), true, false);
+        AidlUtil.getInstance().sendRawData(BytesUtil.printStarLineDiv());
+
+        StringBuffer printContentSb = new StringBuffer();
+        //标题
+        String printContent = printContentSb.append(tickeInfo.getTicketName()).append("\n")
+                //订单号
+                .append(String.format("订单号：%s", tickeInfo.getOrderno())).append("\n")
+                //游客
+                .append(String.format("游客：%s  %s",tickeInfo.getTouristName(), tickeInfo.getTouristMobile())).append("\n")
+                //数量
+                .append(String.format("数量：%d张", tickeInfo.getQuantity())).append("\n")
+                //门市价
+                .append(String.format("门市价：¥%d元", tickeInfo.getMarketPrice())).append("\n")
+                //抵用金额
+                .append(String.format("抵用金额：抵用%d元/张", tickeInfo.getBuyPrice())).append("\n")
+                //使用期限
+                .append(String.format("使用期限：%s", tickeInfo.getUseDate())).append("\n")
+                //领券日期
+                .append(String.format("领券日期：%s", tickeInfo.getOrderTime())).append("\n").toString();
+
+        AidlUtil.getInstance().printText(printContent, AppUtil.dp2px(12), false, false);
+        AidlUtil.getInstance().print3Line();
     }
 
     @Override

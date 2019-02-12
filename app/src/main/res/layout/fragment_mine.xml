@@ -132,8 +132,9 @@
             android:layout_marginRight="20dp"
             android:background="@mipmap/ic_arrow_right"/>
     </RelativeLayout>
-    <View style="@style/div_hor_gray"/>
+    <View style="@style/div_hor_gray" android:visibility="gone"/>
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/rl_print"
         android:layout_width="match_parent"
         android:layout_height="42dp"

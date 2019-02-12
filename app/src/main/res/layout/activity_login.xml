@@ -53,6 +53,7 @@
                 android:id="@+id/et_login_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
                 android:background="@null"/>
         </LinearLayout>
 
@@ -79,12 +80,14 @@
                 android:text="密码"/>
 
             <EditText
+                android:singleLine="true"
                 style="@style/font_3_13"
                 android:id="@+id/et_login_password"
                 android:paddingTop="6dp"
                 android:paddingBottom="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:password="true"
                 android:background="@null"/>
         </LinearLayout>
 

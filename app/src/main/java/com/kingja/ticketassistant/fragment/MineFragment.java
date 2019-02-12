@@ -20,6 +20,7 @@ import com.kingja.ticketassistant.page.HelpActivity;
 import com.kingja.ticketassistant.page.headimg.PersonalActivity;
 import com.kingja.ticketassistant.page.login.LoginActivity;
 import com.kingja.ticketassistant.page.modifypassword.ModifyPasswordActivity;
+import com.kingja.ticketassistant.util.AppUtil;
 import com.kingja.ticketassistant.util.GoUtil;
 import com.kingja.ticketassistant.util.LoginChecker;
 import com.kingja.ticketassistant.util.SpSir;
@@ -77,9 +78,10 @@ public class MineFragment extends BaseFragment {
             case R.id.rl_print:
                 //测试打印
                 ToastUtil.showText("测试打印");
-                AidlUtil.getInstance().printText("鸭鹿鸡验票系统打印测试",30,true,false);
-                AidlUtil.getInstance().printText("测试打印内容\n测试换行",30,true,false);
-                AidlUtil.getInstance().sendRawData(BytesUtil.printDiv());
+//                AidlUtil.getInstance().printText("鸭鹿鸡验票系统打印测试",30,true,false);
+//                AidlUtil.getInstance().printText("测试打印内容\n测试换行",30,true,false);
+//                AidlUtil.getInstance().sendRawData(BytesUtil.printDiv());
+                print();
                 break;
             case R.id.tv_quit:
                 //退出登录
@@ -88,6 +90,32 @@ public class MineFragment extends BaseFragment {
             default:
                 break;
         }
+    }
+
+    private void print() {
+        AidlUtil.getInstance().printText("DDCHICK 验票系统", AppUtil.dp2px(20), true, false);
+        AidlUtil.getInstance().sendRawData(BytesUtil.printStarLineDiv());
+
+        StringBuffer printContentSb = new StringBuffer();
+        //标题
+        String printContent = printContentSb.append("雁荡山一日游").append("\n")
+                //订单号
+                .append(String.format("订单号：%s", "000099")).append("\n")
+                //游客
+                .append(String.format("游客：%s  %s", "张三", "18888888888")).append("\n")
+                //数量
+                .append(String.format("数量：%d张", 3)).append("\n")
+                //门市价
+                .append(String.format("门市价：¥%d元", 200)).append("\n")
+                //抵用金额
+                .append(String.format("抵用金额：抵用%d元/张", 100)).append("\n")
+                //使用期限
+                .append(String.format("使用期限：%s", "2018-10-22至2018-10-25")).append("\n")
+                //领券日期
+                .append(String.format("领券日期：%s", "2018-10-22 10:22:10")).append("\n").toString();
+
+        AidlUtil.getInstance().printText(printContent, AppUtil.dp2px(12), false, false);
+        AidlUtil.getInstance().print3Line();
     }
 
     public void showQuitDialog() {
