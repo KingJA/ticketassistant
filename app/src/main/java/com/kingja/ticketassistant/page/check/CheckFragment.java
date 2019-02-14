@@ -7,8 +7,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -31,7 +36,9 @@ import com.uuzuche.lib_zxing.activity.CodeUtils;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
@@ -46,6 +53,9 @@ public class CheckFragment extends BaseFragment implements CheckContract.View {
     EditText etCode;
     @Inject
     CheckPresenter checkPresenter;
+    @BindView(R.id.iv_clear)
+    ImageView ivClear;
+    Unbinder unbinder;
     private RxPermissions rxPermissions;
 
     @OnClick({R.id.stv_num_one, R.id.stv_num_two, R.id.stv_num_three, R.id.stv_num_four, R.id.stv_num_five,
@@ -200,7 +210,22 @@ public class CheckFragment extends BaseFragment implements CheckContract.View {
 
     @Override
     protected void initData() {
+        etCode.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ivClear.setVisibility(s.length() > 0 ? View.VISIBLE : View.GONE);
+            }
+        });
     }
 
     @Override

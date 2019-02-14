@@ -39,16 +39,15 @@
         android:background="@color/white_hi"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp">
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
 
 
         <EditText
             android:id="@+id/et_code"
-            style="@style/font_3_18"
+            style="@style/font_3_24"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
             android:layout_weight="1"
             android:background="@null"
             android:hint="请输入验证码"
@@ -65,194 +64,208 @@
     </LinearLayout>
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal">
-
-
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_one"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="1"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
+            android:layout_height="0dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
 
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_two"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="2"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
 
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_three"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_one"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_two"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="2"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_three"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="3"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="3"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
+            android:layout_height="0dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_four"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="4"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_five"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="5"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_six"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="6"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_seven"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="7"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_eight"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="8"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_nine"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="9"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_zero"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi"/>
+
+            <com.kingja.ticketassistant.view.FixWidthSll
+                android:id="@+id/stv_num_clear"
+                style="@style/font_c3_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="清除"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/white_hi">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@mipmap/ic_back_num"/>
+
+            </com.kingja.ticketassistant.view.FixWidthSll>
+
+            <com.kingja.ticketassistant.view.FixWidthStv
+                android:id="@+id/stv_num_check"
+                style="@style/font_f_30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="验证"
+                app:super_cornerRadius="5dp"
+                app:super_solidColor="@color/orange_hi"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal">
-
-
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_four"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="4"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
-
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_five"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="5"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
-
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_six"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="6"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal">
-
-
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_seven"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="7"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
-
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_eight"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="8"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
-
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_nine"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="9"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal">
-
-
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_zero"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="0"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi"/>
-
-        <com.kingja.ticketassistant.view.FixWidthSll
-            android:id="@+id/stv_num_clear"
-            style="@style/font_c3_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="清除"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/white_hi">
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@mipmap/ic_back_num"/>
-
-        </com.kingja.ticketassistant.view.FixWidthSll>
-
-        <com.kingja.ticketassistant.view.FixWidthStv
-            android:id="@+id/stv_num_check"
-            style="@style/font_f_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="验证"
-            app:super_cornerRadius="5dp"
-            app:super_solidColor="@color/orange_hi"/>
-
-    </LinearLayout>
 
 </LinearLayout>
