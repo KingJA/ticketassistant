@@ -31,8 +31,45 @@ public class TicketInfo implements Serializable {
     private int quantity;
     private String useDate;
     private String orderTime;
+    private String ticketcode;
+    private String verifyUrl;
+    private String visitMethod;
+    private String useRemarks;
     private int marketPrice;
     private int buyPrice;
+
+
+    public String getTicketcode() {
+        return ticketcode;
+    }
+
+    public void setTicketcode(String ticketcode) {
+        this.ticketcode = ticketcode;
+    }
+
+    public String getVerifyUrl() {
+        return verifyUrl;
+    }
+
+    public void setVerifyUrl(String verifyUrl) {
+        this.verifyUrl = verifyUrl;
+    }
+
+    public String getVisitMethod() {
+        return visitMethod;
+    }
+
+    public void setVisitMethod(String visitMethod) {
+        this.visitMethod = visitMethod;
+    }
+
+    public String getUseRemarks() {
+        return useRemarks;
+    }
+
+    public void setUseRemarks(String useRemarks) {
+        this.useRemarks = useRemarks;
+    }
 
     public String getTicketName() {
         return ticketName;

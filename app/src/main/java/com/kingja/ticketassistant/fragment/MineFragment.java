@@ -93,9 +93,10 @@ public class MineFragment extends BaseFragment {
     }
 
     private void print() {
-        AidlUtil.getInstance().printText("DDCHICK 验票系统", AppUtil.dp2px(20), true, false);
+        AidlUtil.getInstance().printCenterType(1);
+        AidlUtil.getInstance().printText("验票成功", AppUtil.dp2px(20), true, false);
         AidlUtil.getInstance().sendRawData(BytesUtil.printStarLineDiv());
-
+        AidlUtil.getInstance().printCenterType(0);
         StringBuffer printContentSb = new StringBuffer();
         //标题
         String printContent = printContentSb.append("雁荡山一日游").append("\n")
@@ -112,9 +113,11 @@ public class MineFragment extends BaseFragment {
                 //使用期限
                 .append(String.format("使用期限：%s", "2018-10-22至2018-10-25")).append("\n")
                 //领券日期
-                .append(String.format("领券日期：%s", "2018-10-22 10:22:10")).append("\n").toString();
+                .append(String.format("领券日期：%s", "2018-10-22 10:22:10")).append("\n")
+                .toString();
 
         AidlUtil.getInstance().printText(printContent, AppUtil.dp2px(12), false, false);
+        AidlUtil.getInstance().printQr("https://github.com/KingJA",8,3);
         AidlUtil.getInstance().print3Line();
     }
 

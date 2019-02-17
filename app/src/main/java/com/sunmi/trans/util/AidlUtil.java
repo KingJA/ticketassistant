@@ -203,6 +203,23 @@ public class AidlUtil {
     }
 
     /**
+     * 打印对齐方式
+     */
+    public void printCenterType(int type) {
+        if (woyouService == null) {
+            Toast.makeText(context, R.string.toast_2, Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        try {
+            woyouService.setAlignment(type, null);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * 打印条形码
      */
     public void printBarCode(String data, int symbology, int height, int width, int textposition) {
