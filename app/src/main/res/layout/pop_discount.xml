@@ -198,7 +198,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="问答券"/>
+            android:text="点赞券"/>
 
         <ImageView
             android:visibility="gone"

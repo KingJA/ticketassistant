@@ -104,7 +104,7 @@ public class DiscountPop extends BaseBottomPopup {
 
                         break;
                     case DiscountStatus.QUESTION:
-                        onDiscountRateSelectedLintener.onDiscountRateSelected("问答券", "99");
+                        onDiscountRateSelectedLintener.onDiscountRateSelected("点赞券", "99");
                         break;
                 }
                 dismiss();
