@@ -74,7 +74,7 @@ public interface ApiService {
 
 
     /*数据查询*/
-    @POST("/app/data/dataView")
+    @POST("/app/data/dataViewNew")
     Observable<HttpResult<CheckResult>> queryData(@Body RequestBody requestBody);
 
     /*版本检测*/
