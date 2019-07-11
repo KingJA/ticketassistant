@@ -1,38 +1,49 @@
 package com.kingja.ticketassistant.page.query;
 
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jzxiang.pickerview.TimePickerDialog;
 import com.jzxiang.pickerview.data.Type;
 import com.kingja.supershapeview.view.SuperShapeTextView;
 import com.kingja.ticketassistant.R;
+import com.kingja.ticketassistant.adapter.ExpandableItemAdapter;
 import com.kingja.ticketassistant.base.BaseFragment;
 import com.kingja.ticketassistant.base.DaggerBaseCompnent;
 import com.kingja.ticketassistant.injector.component.AppComponent;
 import com.kingja.ticketassistant.model.entiy.CheckResult;
+import com.kingja.ticketassistant.model.entiy.LevelBean;
 import com.kingja.ticketassistant.model.entiy.ScenicType;
 import com.kingja.ticketassistant.page.home.ScenicTypeContract;
 import com.kingja.ticketassistant.page.home.ScenicTypePresenter;
 import com.kingja.ticketassistant.util.DateUtil;
+import com.kingja.ticketassistant.util.ListItemDecoration;
 import com.kingja.ticketassistant.util.LogUtil;
 import com.kingja.ticketassistant.util.SpSir;
 import com.kingja.ticketassistant.view.DiscountPop;
 import com.kingja.ticketassistant.view.ScenicPop;
-import com.kingja.ticketassistant.view.StringTextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import okhttp3.MultipartBody;
 
 /**
@@ -54,12 +65,12 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
     RelativeLayout rlTicketType;
     @BindView(R.id.tv_query)
     SuperShapeTextView tvQuery;
-    @BindView(R.id.tv_listingCount)
-    StringTextView tvListingCount;
-    @BindView(R.id.tv_getInCount)
-    StringTextView tvGetInCount;
-    @BindView(R.id.tv_getInRate)
-    StringTextView tvGetInRate;
+    //    @BindView(R.id.tv_listingCount)
+//    StringTextView tvListingCount;
+//    @BindView(R.id.tv_getInCount)
+//    StringTextView tvGetInCount;
+//    @BindView(R.id.tv_getInRate)
+//    StringTextView tvGetInRate;
     @BindView(R.id.tv_startDate)
     TextView tvStartDate;
     @BindView(R.id.tv_endDate)
@@ -70,12 +81,15 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
     TextView tvTicketType;
     @BindView(R.id.ll_root)
     LinearLayout llRoot;
+    @BindView(R.id.rv)
+    RecyclerView rv;
+    Unbinder unbinder;
     private TimePickerDialog startDateSelector;
     private TimePickerDialog endDateSelector;
     private String startDate = "";
     private String endDate = "";
     private String scenicId = "";
-    private String discountRate="";
+    private String discountRate = "";
     @Inject
     ScenicTypePresenter scenicTypePresenter;
     private ScenicPop scenicPop;
@@ -173,8 +187,8 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
         discountPop = new DiscountPop(getActivity(), llRoot);
         discountPop.setOnDiscountRateSelectedLintener((discountDes, rate) -> {
             tvTicketType.setText(discountDes);
-            discountRate=rate;
-            LogUtil.e(TAG,"discountRate:"+discountRate);
+            discountRate = rate;
+            LogUtil.e(TAG, "discountRate:" + discountRate);
         });
     }
 
@@ -200,9 +214,26 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
 
     @Override
     public void onQueryDataSuccess(CheckResult checkResult) {
-        tvListingCount.setString(checkResult.getListingCount());
-        tvGetInRate.setString(checkResult.getGetInRate());
-        tvGetInCount.setString(checkResult.getGetInCount());
+        ArrayList<MultiItemEntity> res = new ArrayList<>();
+        LevelBean lv0=new LevelBean();
+        lv0.setLevelName(checkResult.getLevelName());
+        lv0.setListingCount(checkResult.getListingCount());
+        lv0.setGetInRate(checkResult.getGetInRate());
+        lv0.setGetInCount(checkResult.getGetInCount());
+        lv0.setLevel(0);
+        List<LevelBean> childrenList = checkResult.getChildren();
+        if (childrenList != null && childrenList.size() > 0) {
+            for (LevelBean levelBean : childrenList) {
+                levelBean.setLevel(1);
+                lv0.addSubItem(levelBean);
+            }
+        }
+        res.add(lv0);
+        ExpandableItemAdapter adapter = new ExpandableItemAdapter(getActivity(),res);
+        rv.setAdapter(adapter);
+        adapter.expandAll();
+        rv.addItemDecoration(new ListItemDecoration(getActivity(),1,ContextCompat.getColor(getActivity(),R.color.diver)));
+        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
 
     }
 

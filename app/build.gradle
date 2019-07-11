@@ -90,6 +90,8 @@ dependencies {
     implementation('com.flipboard:bottomsheet-core:1.5.3') { exclude group: 'com.android.support' }
     /*图片压缩*/
     implementation 'top.zibin:Luban:1.1.8'
+    /*RecyclerView列表*/
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
 }
 
 

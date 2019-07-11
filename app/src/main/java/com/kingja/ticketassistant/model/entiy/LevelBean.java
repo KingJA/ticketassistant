@@ -1,29 +1,24 @@
 package com.kingja.ticketassistant.model.entiy;
 
+import com.chad.library.adapter.base.entity.AbstractExpandableItem;
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
 import java.util.List;
 
 /**
  * Description:TODO
- * Create Time:2018/11/26 0026 上午 10:15
+ * Create Time:2019/7/11 0011 上午 11:57
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class CheckResult {
-
-    /**
-     * levelName : 全部
-     * listingCount : 0
-     * getInCount : 0
-     * getInRate : 0.0%
-     * children : [{"levelName":"优惠券","listingCount":"0","getInCount":"0","getInRate":"0.0%"},{"levelName":"点赞券",
-     * "listingCount":"0","getInCount":"0","getInRate":"0.0%"}]
-     */
+public class LevelBean extends AbstractExpandableItem<LevelBean> implements MultiItemEntity {
 
     private String levelName;
     private String listingCount;
     private String getInCount;
     private String getInRate;
     private List<LevelBean> children;
+    private int level;
 
     public String getLevelName() {
         return null == levelName ? "" : levelName;
@@ -65,5 +60,17 @@ public class CheckResult {
         this.children = children;
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
+    @Override
+    public int getLevel() {
+        return this.level;
+    }
+
+    @Override
+    public int getItemType() {
+        return this.level;
+    }
 }

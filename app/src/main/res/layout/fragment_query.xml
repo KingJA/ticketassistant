@@ -67,8 +67,8 @@
 
             <View
                 style="@style/div_hor_gray"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
 
 
         </LinearLayout>
@@ -118,8 +118,8 @@
 
             <View
                 style="@style/div_hor_gray"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
 
 
         </LinearLayout>
@@ -169,13 +169,14 @@
 
             <View
                 style="@style/div_hor_gray"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
 
 
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white_hi"
@@ -236,81 +237,72 @@
             app:super_cornerRadius="4dp"
             app:super_solidColor="@color/orange_hi"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+
+        <LinearLayout
             android:background="@color/white_hi"
-            android:padding="16dp">
-
-            <TextView
-                style="@style/font_6_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="上架数"/>
-
-            <com.kingja.ticketassistant.view.StringTextView
-                android:id="@+id/tv_listingCount"
-                style="@style/font_3_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text=""/>
-
-        </RelativeLayout>
-
-        <View
-            style="@style/div_hor_gray"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
-
-        <RelativeLayout
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white_hi"
-            android:padding="16dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                style="@style/font_6_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="入园数"/>
+            <LinearLayout
+                android:background="@color/white_hi"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <com.kingja.ticketassistant.view.StringTextView
-                android:id="@+id/tv_getInCount"
-                style="@style/font_3_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text=""/>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
 
-        </RelativeLayout>
+                    <TextView
+                        android:gravity="center"
+                        style="@style/font_3_13"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="票种"/> <TextView
+                    android:gravity="center"
+                    style="@style/font_3_13"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="上架数"/> <TextView
+                    android:gravity="center"
+                    style="@style/font_3_13"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="入园数"/> <TextView
+                    android:gravity="center"
+                    style="@style/font_3_13"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="入园率"/>
 
-        <View
-            style="@style/div_hor_gray"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+                </LinearLayout>
+                <ImageView
+                    android:visibility="invisible"
+                    android:layout_width="18dp"
+                    android:layout_height="15dp"
+                    android:background="@mipmap/ic_arrow_gray_down"/>
+            </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white_hi"
-            android:padding="16dp">
 
-            <TextView
-                style="@style/font_6_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="入园率"/>
+            <View
+                style="@style/div_hor_gray"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
-            <com.kingja.ticketassistant.view.StringTextView
-                android:id="@+id/tv_getInRate"
-                style="@style/font_3_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text=""/>
+        </LinearLayout>
 
-        </RelativeLayout>
+
 
     </LinearLayout>
 </ScrollView>
