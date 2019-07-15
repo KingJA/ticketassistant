@@ -8,7 +8,7 @@ package com.kingja.ticketassistant.constants;
  * 修改备注：
  */
 public class Constants {
-    public static final String BASE_URL = "http://api.ddchick.com";
+    public static final String BASE_URL = "http://testapi.ddchick.com";
     public static final int PAGE_SIZE = 20;
     public static final int PAGE_SIZE_5 = 5;
     public static final int PAGE_FIRST = 1;

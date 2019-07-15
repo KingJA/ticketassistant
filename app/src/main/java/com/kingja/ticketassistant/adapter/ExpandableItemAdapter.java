@@ -42,45 +42,44 @@ public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEn
 
     @Override
     protected void convert(final BaseViewHolder holder, final MultiItemEntity item) {
-        switch (holder.getItemViewType()) {
+        final LevelBean levelBean = (LevelBean) item;
+        holder.setText(R.id.tv_levelName, levelBean.getLevelName())
+                .setText(R.id.tv_listingCount, levelBean.getListingCount())
+                .setText(R.id.tv_getInCount, levelBean.getGetInCount())
+                .setText(R.id.tv_getInRate, levelBean.getGetInRate()).setVisible(R.id.iv_arrow, levelBean.isExpandable());
+        holder.itemView.setOnClickListener(v -> {
+            int pos = holder.getAdapterPosition();
+            if (levelBean.isExpanded()) {
+                collapse(pos);
+            } else {
+                expand(pos);
+            }
+            holder.setBackgroundRes(R.id.iv_arrow, levelBean.isExpanded() ? R.mipmap.ic_arrow_gray_up : R.mipmap
+                    .ic_arrow_gray_down);
+        });
+        holder.setTextColor(R.id.tv_levelName, getColor(levelBean.getLevel()))
+                .setTextColor(R.id.tv_listingCount, getColor(levelBean.getLevel()))
+                .setTextColor(R.id.tv_getInCount, getColor(levelBean.getLevel()))
+                .setTextColor(R.id.tv_getInRate, getColor(levelBean.getLevel()))
+                .setBackgroundRes(R.id.iv_arrow, levelBean.isExpanded() ? R.mipmap.ic_arrow_gray_up : R.mipmap
+                        .ic_arrow_gray_down);
+    }
+
+    public int getColor(int level) {
+        int resultCololrResId= ContextCompat.getColor(context, R.color.c_3);
+        switch (level) {
             case TYPE_LEVEL_0:
-                final LevelBean lv0 = (LevelBean) item;
-                holder.setText(R.id.tv_levelName, lv0.getLevelName())
-                        .setText(R.id.tv_listingCount, lv0.getListingCount())
-                        .setText(R.id.tv_getInCount, lv0.getGetInCount())
-                        .setText(R.id.tv_getInRate, lv0.getGetInRate())
-                        .setTextColor(R.id.tv_levelName, ContextCompat.getColor(context, R.color.c_3))
-                        .setTextColor(R.id.tv_listingCount, ContextCompat.getColor(context, R.color.c_3))
-                        .setTextColor(R.id.tv_getInCount, ContextCompat.getColor(context, R.color.c_3))
-                        .setTextColor(R.id.tv_getInRate, ContextCompat.getColor(context, R.color.c_3))
-                        .setBackgroundRes(R.id.iv_arrow, lv0.isExpanded() ? R.mipmap.ic_arrow_gray_up : R.mipmap
-                                .ic_arrow_gray_down);
-                holder.itemView.setOnClickListener(v -> {
-                    int pos = holder.getAdapterPosition();
-                    if (lv0.isExpanded()) {
-                        collapse(pos);
-                    } else {
-                        expand(pos);
-                    }
-                    holder.setBackgroundRes(R.id.iv_arrow, lv0.isExpanded() ? R.mipmap.ic_arrow_gray_up : R.mipmap
-                                    .ic_arrow_gray_down);
-                });
+                resultCololrResId= ContextCompat.getColor(context, R.color.c_3);
                 break;
             case TYPE_LEVEL_1:
-                final LevelBean lv1 = (LevelBean) item;
-                holder.setText(R.id.tv_levelName, lv1.getLevelName())
-                        .setText(R.id.tv_listingCount, lv1.getListingCount())
-                        .setText(R.id.tv_getInCount, lv1.getGetInCount())
-                        .setText(R.id.tv_getInRate, lv1.getGetInRate())
-                        .setTextColor(R.id.tv_levelName, ContextCompat.getColor(context, R.color.orange_hi))
-                        .setTextColor(R.id.tv_listingCount, ContextCompat.getColor(context, R.color.orange_hi))
-                        .setTextColor(R.id.tv_getInCount, ContextCompat.getColor(context, R.color.orange_hi))
-                        .setTextColor(R.id.tv_getInRate, ContextCompat.getColor(context, R.color.orange_hi));
+                resultCololrResId= ContextCompat.getColor(context, R.color.orange_hi);
                 break;
             case TYPE_LEVEL_2:
+                resultCololrResId= ContextCompat.getColor(context, R.color.c_9);
                 break;
             default:
                 break;
         }
+        return resultCololrResId;
     }
 }

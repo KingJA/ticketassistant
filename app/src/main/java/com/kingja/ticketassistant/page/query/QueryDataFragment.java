@@ -213,28 +213,31 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
     }
 
     @Override
-    public void onQueryDataSuccess(CheckResult checkResult) {
+    public void onQueryDataSuccess(List<LevelBean> levelBeanList) {
         ArrayList<MultiItemEntity> res = new ArrayList<>();
-        LevelBean lv0=new LevelBean();
-        lv0.setLevelName(checkResult.getLevelName());
-        lv0.setListingCount(checkResult.getListingCount());
-        lv0.setGetInRate(checkResult.getGetInRate());
-        lv0.setGetInCount(checkResult.getGetInCount());
-        lv0.setLevel(0);
-        List<LevelBean> childrenList = checkResult.getChildren();
-        if (childrenList != null && childrenList.size() > 0) {
-            for (LevelBean levelBean : childrenList) {
-                levelBean.setLevel(1);
-                lv0.addSubItem(levelBean);
+
+        if (levelBeanList != null && levelBeanList.size() > 0) {
+            for (LevelBean levelBean : levelBeanList) {
+                setLevelData(levelBean);
+                res.add(levelBean);
             }
         }
-        res.add(lv0);
         ExpandableItemAdapter adapter = new ExpandableItemAdapter(getActivity(),res);
         rv.setAdapter(adapter);
-        adapter.expandAll();
+//        adapter.expandAll();//默认关闭
         rv.addItemDecoration(new ListItemDecoration(getActivity(),1,ContextCompat.getColor(getActivity(),R.color.diver)));
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+    }
+
+    public void setLevelData(LevelBean levelBean) {
+        List<LevelBean> levelBeanList=levelBean.getChildren();
+        if (levelBeanList != null && levelBeanList.size() > 0) {
+            for (LevelBean bean : levelBeanList) {
+                levelBean.addSubItem(bean);
+                setLevelData(bean);
+            }
+        }
     }
 
     private void initScenicTypeData() {

@@ -3,6 +3,7 @@ package com.kingja.ticketassistant.model.service;
 
 import com.kingja.ticketassistant.model.entiy.CheckResult;
 import com.kingja.ticketassistant.model.entiy.HttpResult;
+import com.kingja.ticketassistant.model.entiy.LevelBean;
 import com.kingja.ticketassistant.model.entiy.Login;
 import com.kingja.ticketassistant.model.entiy.ScenicType;
 import com.kingja.ticketassistant.model.entiy.TicketInfo;
@@ -75,7 +76,7 @@ public interface ApiService {
 
     /*数据查询*/
     @POST("/app/data/dataViewNew")
-    Observable<HttpResult<CheckResult>> queryData(@Body RequestBody requestBody);
+    Observable<HttpResult<List<LevelBean>>> queryData(@Body RequestBody requestBody);
 
     /*版本检测*/
     @FormUrlEncoded

@@ -19,6 +19,11 @@ public class LevelBean extends AbstractExpandableItem<LevelBean> implements Mult
     private String getInRate;
     private List<LevelBean> children;
     private int level;
+    private boolean expandable;
+
+    public boolean isExpandable() {
+        return children != null && children.size() > 0;
+    }
 
     public String getLevelName() {
         return null == levelName ? "" : levelName;

@@ -4,7 +4,10 @@ import android.support.annotation.NonNull;
 
 import com.kingja.ticketassistant.model.api.UserApi;
 import com.kingja.ticketassistant.model.entiy.CheckResult;
+import com.kingja.ticketassistant.model.entiy.LevelBean;
 import com.kingja.ticketassistant.model.entiy.ResultObserver;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -42,10 +45,10 @@ public class QueryDataPresenter implements QueryDataContract.Presenter {
     public void queryData(RequestBody requestBody) {
         mApi.getApiService().queryData(requestBody).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers
                 .mainThread()).subscribe
-                (new ResultObserver<CheckResult>(mView) {
+                (new ResultObserver<List<LevelBean>>(mView) {
                     @Override
-                    protected void onSuccess(CheckResult checkResult) {
-                        mView.onQueryDataSuccess(checkResult);
+                    protected void onSuccess(List<LevelBean> levelBeanList) {
+                        mView.onQueryDataSuccess(levelBeanList);
                     }
                 });
     }
