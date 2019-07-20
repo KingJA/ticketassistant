@@ -23,7 +23,6 @@ import com.kingja.ticketassistant.adapter.ExpandableItemAdapter;
 import com.kingja.ticketassistant.base.BaseFragment;
 import com.kingja.ticketassistant.base.DaggerBaseCompnent;
 import com.kingja.ticketassistant.injector.component.AppComponent;
-import com.kingja.ticketassistant.model.entiy.CheckResult;
 import com.kingja.ticketassistant.model.entiy.LevelBean;
 import com.kingja.ticketassistant.model.entiy.ScenicType;
 import com.kingja.ticketassistant.page.home.ScenicTypeContract;
@@ -34,6 +33,7 @@ import com.kingja.ticketassistant.util.LogUtil;
 import com.kingja.ticketassistant.util.SpSir;
 import com.kingja.ticketassistant.view.DiscountPop;
 import com.kingja.ticketassistant.view.ScenicPop;
+import com.kingja.ticketassistant.view.StringTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,12 +65,12 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
     RelativeLayout rlTicketType;
     @BindView(R.id.tv_query)
     SuperShapeTextView tvQuery;
-    //    @BindView(R.id.tv_listingCount)
-//    StringTextView tvListingCount;
-//    @BindView(R.id.tv_getInCount)
+    @BindView(R.id.tv_listingCount)
+    TextView tvListingCount;
+    //    @BindView(R.id.tv_getInCount)
 //    StringTextView tvGetInCount;
-//    @BindView(R.id.tv_getInRate)
-//    StringTextView tvGetInRate;
+    @BindView(R.id.tv_getInRate)
+    TextView tvGetInRate;
     @BindView(R.id.tv_startDate)
     TextView tvStartDate;
     @BindView(R.id.tv_endDate)
@@ -84,6 +84,9 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
     @BindView(R.id.rv)
     RecyclerView rv;
     Unbinder unbinder;
+    @BindView(R.id.ll_scenic_selector)
+    LinearLayout llScenicSelector;
+    Unbinder unbinder1;
     private TimePickerDialog startDateSelector;
     private TimePickerDialog endDateSelector;
     private String startDate = "";
@@ -182,6 +185,9 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
 
     @Override
     protected void initData() {
+        llScenicSelector.setVisibility(SpSir.getInstance().IsManager() ? View.VISIBLE : View.GONE);
+        tvListingCount.setVisibility(SpSir.getInstance().IsManager() ? View.VISIBLE : View.INVISIBLE);
+        tvGetInRate.setVisibility(SpSir.getInstance().IsManager() ? View.VISIBLE : View.INVISIBLE);
         initScenicTypeData();
         initScenicPop();
         discountPop = new DiscountPop(getActivity(), llRoot);
@@ -222,16 +228,17 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
                 res.add(levelBean);
             }
         }
-        ExpandableItemAdapter adapter = new ExpandableItemAdapter(getActivity(),res);
+        ExpandableItemAdapter adapter = new ExpandableItemAdapter(getActivity(), res);
         rv.setAdapter(adapter);
 //        adapter.expandAll();//默认关闭
-        rv.addItemDecoration(new ListItemDecoration(getActivity(),1,ContextCompat.getColor(getActivity(),R.color.diver)));
+        rv.addItemDecoration(new ListItemDecoration(getActivity(), 1, ContextCompat.getColor(getActivity(), R.color
+                .diver)));
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
 
     }
 
     public void setLevelData(LevelBean levelBean) {
-        List<LevelBean> levelBeanList=levelBean.getChildren();
+        List<LevelBean> levelBeanList = levelBean.getChildren();
         if (levelBeanList != null && levelBeanList.size() > 0) {
             for (LevelBean bean : levelBeanList) {
                 levelBean.addSubItem(bean);
@@ -258,4 +265,17 @@ public class QueryDataFragment extends BaseFragment implements QueryDataContract
         scenicPop.setData(scenicTypeList);
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder1 = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder1.unbind();
+    }
 }

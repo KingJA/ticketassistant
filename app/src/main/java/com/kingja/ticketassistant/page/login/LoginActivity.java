@@ -110,5 +110,6 @@ public class LoginActivity extends BaseTitleActivity implements LoginContract.Vi
         SpSir.getInstance().putToken(login.getToken());
         SpSir.getInstance().putMobile(login.getMobile());
         SpSir.getInstance().putNickName(login.getNickName());
+        SpSir.getInstance().putIsManager(login.getIsManager()==1);
     }
 }

@@ -64,7 +64,7 @@
         android:lineSpacingExtra="4dp"
         android:layout_marginBottom="8dp"
         style="@style/font_9_13"
-        android:text="选择好你所要查看的景点、票种、时间范围后点击＂查询＂按钮即可查询相应信息。"
+        android:text="选择好你所要查看的景点、时间范围后点击＂查询＂按钮即可查询相应信息。"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <LinearLayout

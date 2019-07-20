@@ -24,6 +24,7 @@ public class SpSir {
     private static final String MsgCount = "MsgCount";
     private static final String City = "City";
     private static final String History_Keyword = "History_Keyword";
+    private static final String IsManager = "IsManager";
     private static final String EMPTY_STRING = "";
     private static SpSir mSpSir;
     private SharedPreferences mSp;
@@ -45,6 +46,9 @@ public class SpSir {
 
     /*================================GET================================*/
 
+    public boolean IsManager() {
+        return getBoolean(IsManager,false);
+    }
     public String getNickname() {
         return getString(NICKNAME);
     }
@@ -91,7 +95,9 @@ public class SpSir {
 
     /*================================PUT================================*/
 
-
+    public void putIsManager(boolean isManager) {
+        putBoolean(IsManager, isManager);
+    }
     public void putNickName(String nickName) {
         putString(NICKNAME, nickName);
     }
@@ -168,7 +174,12 @@ public class SpSir {
     private void putInt(String key, int value) {
         mSp.edit().putInt(key, value).apply();
     }
-
+    private void putBoolean(String key, boolean value) {
+        mSp.edit().putBoolean(key, value).apply();
+    }
+    private boolean getBoolean(String key, boolean defaultValue) {
+        return mSp.getBoolean(key, defaultValue);
+    }
     private int getInt(String key, int defaultValue) {
         return mSp.getInt(key, defaultValue);
     }

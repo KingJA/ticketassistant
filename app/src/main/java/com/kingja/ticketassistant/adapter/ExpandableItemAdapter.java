@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.entity.IExpandable;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.kingja.ticketassistant.R;
 import com.kingja.ticketassistant.model.entiy.LevelBean;
+import com.kingja.ticketassistant.util.SpSir;
 
 import java.util.List;
 
@@ -44,6 +45,8 @@ public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEn
     protected void convert(final BaseViewHolder holder, final MultiItemEntity item) {
         final LevelBean levelBean = (LevelBean) item;
         holder.setText(R.id.tv_levelName, levelBean.getLevelName())
+                .setVisible(R.id.tv_listingCount, SpSir.getInstance().IsManager() )
+                .setVisible(R.id.tv_getInRate, SpSir.getInstance().IsManager() )
                 .setText(R.id.tv_listingCount, levelBean.getListingCount())
                 .setText(R.id.tv_getInCount, levelBean.getGetInCount())
                 .setText(R.id.tv_getInRate, levelBean.getGetInRate()).setVisible(R.id.iv_arrow, levelBean.isExpandable());
